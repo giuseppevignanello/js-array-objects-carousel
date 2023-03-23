@@ -66,8 +66,13 @@ nextEl.addEventListener("click",
 
         const currentImg = displayedImg[activeImg]
         currentImg.classList.remove("active");
-        activeImg ++; 
-        let nextImg = displayedImg[activeImg]; 
+        if (activeImg === 4) {
+            activeImg = 0
+        } else {
+            activeImg++
+        }
+
+        let nextImg = displayedImg[activeImg];
         nextImg.classList.add("active")
 
     }
@@ -81,8 +86,13 @@ prevEl.addEventListener("click",
 
         const currentImg = displayedImg[activeImg]
         currentImg.classList.remove("active");
-        activeImg --; 
-        let prevImg = displayedImg[activeImg]; 
+        if (activeImg === 0) {
+            activeImg = 4
+        } else {
+            activeImg--
+        }
+
+        let prevImg = displayedImg[activeImg];
         prevImg.classList.add("active")
 
     }
@@ -94,13 +104,7 @@ prevEl.addEventListener("click",
 // Aggiungere il ciclo infinito del carosello. Ovvero se la miniatura attiva è la prima e l'utente clicca la freccia verso destra, la miniatura che deve attivarsi sarà l'ultima e viceversa per l'ultima miniatura se l'utente clicca la freccia verso sinistra.
 //add infinite loop with if/else conditions
 
-// if (activeImg === 4) {
-//     activeImg = 0
-//     } else {
-//     activeImg ++
-//     }
-// ;
-
+//
 
 
 // BONUS 1:
