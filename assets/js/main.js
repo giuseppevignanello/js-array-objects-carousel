@@ -43,11 +43,11 @@ const sliderEl = document.querySelector(".slider");
 
 let activeImg = 0
 
-images.forEach(image => {
-    const imagesEl = sliderEl.innerHTML += `<div class="images text-center mt-5 ${i === activeImg ? `active` : ``}">
+images.forEach((image, i) => {
+    sliderEl.innerHTML += `<div class="images text-center mt-5 ${i === activeImg ? `active` : ``}">
                 <img src="./assets/${image.image}" alt="">
             </div>`
-    return imagesEl
+
 
 })
 
@@ -55,32 +55,36 @@ images.forEach(image => {
 
 // show and hide images with classes and classList.add
 
-// const nextEl = document.querySelector(".next");
+const nextEl = document.querySelector(".next");
 
-// nextEl.addEventListener("click",
+nextEl.addEventListener("click",
 
-//     function () {
-//         images.map(image => {
-//             const imageEl = `<div class="images text-center mt-5 ${image === activeImg }">
-//              <img src="./assets/${image.image}" alt="">
-//              </div>`
+function () {
 
 
-//         })
-
-//     }
-
-// )
+}
+)
 
 
 // Milestone 2:
 // Aggiungere il ciclo infinito del carosello. Ovvero se la miniatura attiva è la prima e l'utente clicca la freccia verso destra, la miniatura che deve attivarsi sarà l'ultima e viceversa per l'ultima miniatura se l'utente clicca la freccia verso sinistra.
 //add infinite loop with if/else conditions
 
+// if (activeImg === 4) {
+//     activeImg = 0
+//     } else {
+//     activeImg ++
+//     }
+// ; 
+
 
 
 // BONUS 1:
 // Aggiungere le thumbnails (sottoforma di miniatura) ed al click attivare l’immagine corrispondente.
+
+
+
+
 // BONUS 2:
 // Aggiungere funzionalità di autoplay: dopo un certo periodo di tempo (3 secondi) l’immagine attiva dovrà cambiare alla successiva.
 // BONUS 3:
