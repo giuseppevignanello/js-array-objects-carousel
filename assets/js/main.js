@@ -39,7 +39,17 @@ const images = [
 
 //add elements to DOM with for each 
 
-// Al click dell'utente sulle frecce verso sinistra o destra, l'immagine attiva diventerà visibile e dovremo aggiungervi titolo e testo. 
+const sliderEl = document.querySelector(".slider");
+
+images.map(image => {
+    const imagesEl = sliderEl.innerHTML += `<div class="images text-center mt-5">
+                <img src="./assets/${image.image}" alt="">
+            </div>`
+    return imagesEl 
+
+})
+
+// Al click dell'utente sulle frecce verso sinistra o destra, l'immagine attiva diventerà visibile e dovremo aggiungervi titolo e testo.
 
 // show and hide images with classes and classList.add
 
