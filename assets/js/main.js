@@ -85,27 +85,7 @@ nextEl.addEventListener("click", changeImg)
 
 const prevEl = document.querySelector(".prev")
 
-prevEl.addEventListener("click",
-
-    function () {
-
-        const currentImg = displayedImg[activeImg];
-        const currentThumbnailImg = thumbnailImages[activeImg];
-        currentImg.classList.remove("active");
-        currentThumbnailImg.classList.remove("thumbnailActive")
-        if (activeImg === 0) {
-            activeImg = 4
-        } else {
-            activeImg--
-        }
-
-        let prevImg = displayedImg[activeImg];
-        let prevThumbnailImg = thumbnailImages[activeImg];
-        prevImg.classList.add("active");
-        prevThumbnailImg.classList.add("thumbnailActive")
-
-    }
-)
+prevEl.addEventListener("click",changeImgReverse)
 
 thumbnailImages.forEach((img, i) => {
     img.addEventListener("click",
@@ -159,6 +139,7 @@ function changeImg() {
 
 const startBtnEl = document.querySelector(".start");
 const stopBtnEl = document.querySelector(".stop");
+const changeReverseBtnEl = document.querySelector(".changeReverse");
 
 
 startBtnEl.addEventListener("click",
@@ -170,6 +151,36 @@ startBtnEl.addEventListener("click",
         } )
         }
 )
+
+changeReverseBtnEl.addEventListener("click", 
+function () {
+    const changeImgIntervalReverse = setInterval(changeImgReverse, 3000)
+    stopBtnEl.addEventListener("click", 
+    function() {
+        clearInterval(changeImgIntervalReverse)
+    } )
+    }
+)
+
+
+function changeImgReverse () {
+
+    const currentImg = displayedImg[activeImg];
+    const currentThumbnailImg = thumbnailImages[activeImg];
+    currentImg.classList.remove("active");
+    currentThumbnailImg.classList.remove("thumbnailActive")
+    if (activeImg === 0) {
+        activeImg = 4
+    } else {
+        activeImg--
+    }
+
+    let prevImg = displayedImg[activeImg];
+    let prevThumbnailImg = thumbnailImages[activeImg];
+    prevImg.classList.add("active");
+    prevThumbnailImg.classList.add("thumbnailActive")
+
+}
 
 
 
