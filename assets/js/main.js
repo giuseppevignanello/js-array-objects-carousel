@@ -49,6 +49,8 @@ images.forEach((image, i) => {
     sliderEl.innerHTML += `<div class="images text-center">
         <img class ="${i === activeImg ? `active` : ``}" src="./assets/${image.image}" alt="">
     </div>`
+    
+
 })
 
 images.forEach((image, i) => {
@@ -79,27 +81,7 @@ const displayedImg = document.querySelectorAll(".images img")
 const thumbnailImages = document.querySelectorAll(".thumbnail img ")
 const nextEl = document.querySelector(".next");
 
-nextEl.addEventListener("click",
-
-    function () {
-
-        const currentImg = displayedImg[activeImg];
-        const currentThumbnailImg = thumbnailImages[activeImg];
-        currentImg.classList.remove("active");
-        currentThumbnailImg.classList.remove("thumbnailActive")
-        if (activeImg === 4) {
-            activeImg = 0
-        } else {
-            activeImg++
-        }
-
-        let nextImg = displayedImg[activeImg];
-        let nextThumbnailImg = thumbnailImages[activeImg];
-        nextImg.classList.add("active");
-        nextThumbnailImg.classList.add("thumbnailActive")
-
-    }
-)
+nextEl.addEventListener("click", changeImg)
 
 const prevEl = document.querySelector(".prev")
 
@@ -125,16 +107,15 @@ prevEl.addEventListener("click",
     }
 )
 
-thumbnailImages.forEach(img => {
+thumbnailImages.forEach((img, i) => {
     img.addEventListener("click",
 
         function () {
             const images = document.querySelectorAll(".images img");
-            const currentImg = images[activeImg];
+            currentImg = images[activeImg]
             currentImg.classList.remove("active");
-            activeImg = thumbnailImages[img];
-             const newCurrentImg = images[activeImg];
-             newCurrentImg.classList.add("active")
+            currentImg = images[i];
+            currentImg.classList.add("active"); 
 
         }
 
@@ -150,6 +131,28 @@ thumbnailImages.forEach(img => {
 
 // BONUS 2:
 // Aggiungere funzionalità di autoplay: dopo un certo periodo di tempo (3 secondi) l’immagine attiva dovrà cambiare alla successiva.
+
+setInterval(changeImg, 3000)
+
+
+//function changeImg
+function changeImg () {
+        const currentImg = displayedImg[activeImg];
+        const currentThumbnailImg = thumbnailImages[activeImg];
+        currentImg.classList.remove("active");
+        currentThumbnailImg.classList.remove("thumbnailActive")
+        if (activeImg === 4) {
+            activeImg = 0
+        } else {
+            activeImg++
+        }
+
+        let nextImg = displayedImg[activeImg];
+        let nextThumbnailImg = thumbnailImages[activeImg];
+        nextImg.classList.add("active");
+        nextThumbnailImg.classList.add("thumbnailActive")
+
+    }
 // BONUS 3:
 // Aggiungere bottoni di start/stop e di inversione del meccanismo di autoplay.
 
