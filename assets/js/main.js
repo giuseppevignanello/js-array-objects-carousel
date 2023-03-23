@@ -41,20 +41,36 @@ const images = [
 
 const sliderEl = document.querySelector(".slider");
 
-images.map(image => {
-    const imagesEl = sliderEl.innerHTML += `<div class="images text-center mt-5">
+let activeImg = 0
+
+images.forEach(image => {
+    const imagesEl = sliderEl.innerHTML += `<div class="images text-center mt-5 ${i === activeImg ? `active` : ``}">
                 <img src="./assets/${image.image}" alt="">
             </div>`
-    return imagesEl 
+    return imagesEl
 
 })
 
 // Al click dell'utente sulle frecce verso sinistra o destra, l'immagine attiva diventerà visibile e dovremo aggiungervi titolo e testo.
 
-
-
-
 // show and hide images with classes and classList.add
+
+// const nextEl = document.querySelector(".next");
+
+// nextEl.addEventListener("click",
+
+//     function () {
+//         images.map(image => {
+//             const imageEl = `<div class="images text-center mt-5 ${image === activeImg }">
+//              <img src="./assets/${image.image}" alt="">
+//              </div>`
+
+
+//         })
+
+//     }
+
+// )
 
 
 // Milestone 2:
