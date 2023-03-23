@@ -71,6 +71,8 @@ images.forEach((image, i) => {
 //add infinite loop with if/else conditions
 
 
+// BONUS 1:
+// Aggiungere le thumbnails (sottoforma di miniatura) ed al click attivare l’immagine corrispondente.
 
 
 const displayedImg = document.querySelectorAll(".images img")
@@ -123,11 +125,25 @@ prevEl.addEventListener("click",
     }
 )
 
+thumbnailImages.forEach(img => {
+    img.addEventListener("click",
+
+        function () {
+            const images = document.querySelectorAll(".images img");
+            const currentImg = images[activeImg];
+            currentImg.classList.remove("active");
+            activeImg = thumbnailImages[img];
+             const newCurrentImg = images[activeImg];
+             newCurrentImg.classList.add("active")
+
+        }
 
 
 
-// BONUS 1:
-// Aggiungere le thumbnails (sottoforma di miniatura) ed al click attivare l’immagine corrispondente.
+    )
+
+
+})
 
 
 
