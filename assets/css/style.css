@@ -1,0 +1,11 @@
+/* #region general */
+img {
+    max-width: 100%;
+}
+
+/* #endregion general */
+
+
+.images img {
+    width: 400px; 
+}
