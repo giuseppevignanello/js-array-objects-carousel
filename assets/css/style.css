@@ -7,11 +7,15 @@ img {
 
 
 .images img {
-    width: 400px; 
+    width: 200px; 
 }
 
-.images:not(.active) {
+.images img:not(.active) {
     display: none;
+}
+
+.thumbnailImg img:not(.thumbnailActive) {
+    filter: opacity(0.5);
 }
 
 .buttons .prev {

@@ -40,32 +40,51 @@ const images = [
 //add elements to DOM with for each 
 
 const sliderEl = document.querySelector(".slider");
+const thumbnailEl = document.querySelector(".thumbnail")
 
 
 let activeImg = 0
 
 images.forEach((image, i) => {
-    sliderEl.innerHTML += `<div class="images text-center mt-5 ${i === activeImg ? `active` : ``}">
-        <img src="./assets/${image.image}" alt="">
+    sliderEl.innerHTML += `<div class="images text-center">
+        <img class ="${i === activeImg ? `active` : ``}" src="./assets/${image.image}" alt="">
+    </div>`
+})
+
+images.forEach((image, i) => {
+    thumbnailEl.innerHTML += `<div class="thumbnailImg">
+        <img class="${i === activeImg ? `thumbnailActive` : ``}" src="./assets/${image.image}" alt="">
     </div>`
 
 
 })
 
 
+
 // Al click dell'utente sulle frecce verso sinistra o destra, l'immagine attiva diventerà visibile e dovremo aggiungervi titolo e testo.
 
 // show and hide images with classes and classList.add
 
-const displayedImg = document.querySelectorAll(".images")
+
+// Milestone 2:
+// Aggiungere il ciclo infinito del carosello. Ovvero se la miniatura attiva è la prima e l'utente clicca la freccia verso destra, la miniatura che deve attivarsi sarà l'ultima e viceversa per l'ultima miniatura se l'utente clicca la freccia verso sinistra.
+//add infinite loop with if/else conditions
+
+
+
+
+const displayedImg = document.querySelectorAll(".images img")
+const thumbnailImages = document.querySelectorAll(".thumbnail img ")
 const nextEl = document.querySelector(".next");
 
 nextEl.addEventListener("click",
 
     function () {
 
-        const currentImg = displayedImg[activeImg]
+        const currentImg = displayedImg[activeImg];
+        const currentThumbnailImg = thumbnailImages[activeImg];
         currentImg.classList.remove("active");
+        currentThumbnailImg.classList.remove("thumbnailActive")
         if (activeImg === 4) {
             activeImg = 0
         } else {
@@ -73,7 +92,9 @@ nextEl.addEventListener("click",
         }
 
         let nextImg = displayedImg[activeImg];
-        nextImg.classList.add("active")
+        let nextThumbnailImg = thumbnailImages[activeImg];
+        nextImg.classList.add("active");
+        nextThumbnailImg.classList.add("thumbnailActive")
 
     }
 )
@@ -84,8 +105,10 @@ prevEl.addEventListener("click",
 
     function () {
 
-        const currentImg = displayedImg[activeImg]
+        const currentImg = displayedImg[activeImg];
+        const currentThumbnailImg = thumbnailImages[activeImg];
         currentImg.classList.remove("active");
+        currentThumbnailImg.classList.remove("thumbnailActive")
         if (activeImg === 0) {
             activeImg = 4
         } else {
@@ -93,18 +116,14 @@ prevEl.addEventListener("click",
         }
 
         let prevImg = displayedImg[activeImg];
-        prevImg.classList.add("active")
+        let prevThumbnailImg = thumbnailImages[activeImg];
+        prevImg.classList.add("active");
+        prevThumbnailImg.classList.add("thumbnailActive")
 
     }
 )
 
 
-
-// Milestone 2:
-// Aggiungere il ciclo infinito del carosello. Ovvero se la miniatura attiva è la prima e l'utente clicca la freccia verso destra, la miniatura che deve attivarsi sarà l'ultima e viceversa per l'ultima miniatura se l'utente clicca la freccia verso sinistra.
-//add infinite loop with if/else conditions
-
-//
 
 
 // BONUS 1:
