@@ -9,3 +9,19 @@ img {
 .images img {
     width: 400px; 
 }
+
+.images:not(.active) {
+    display: none;
+}
+
+.buttons .prev {
+    position: absolute; 
+    top: 40%;
+    left: 10%;
+}
+
+.buttons .next {
+    position: absolute; 
+    top: 40%;
+    left: 85%;
+}

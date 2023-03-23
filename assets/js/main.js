@@ -51,6 +51,9 @@ images.map(image => {
 
 // Al click dell'utente sulle frecce verso sinistra o destra, l'immagine attiva diventerà visibile e dovremo aggiungervi titolo e testo.
 
+
+
+
 // show and hide images with classes and classList.add
 
 
