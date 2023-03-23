@@ -41,29 +41,53 @@ const images = [
 
 const sliderEl = document.querySelector(".slider");
 
+
 let activeImg = 0
 
 images.forEach((image, i) => {
     sliderEl.innerHTML += `<div class="images text-center mt-5 ${i === activeImg ? `active` : ``}">
-                <img src="./assets/${image.image}" alt="">
-            </div>`
+        <img src="./assets/${image.image}" alt="">
+    </div>`
 
 
 })
+
 
 // Al click dell'utente sulle frecce verso sinistra o destra, l'immagine attiva diventerà visibile e dovremo aggiungervi titolo e testo.
 
 // show and hide images with classes and classList.add
 
+const displayedImg = document.querySelectorAll(".images")
 const nextEl = document.querySelector(".next");
 
 nextEl.addEventListener("click",
 
-function () {
+    function () {
 
+        const currentImg = displayedImg[activeImg]
+        currentImg.classList.remove("active");
+        activeImg ++; 
+        let nextImg = displayedImg[activeImg]; 
+        nextImg.classList.add("active")
 
-}
+    }
 )
+
+const prevEl = document.querySelector(".prev")
+
+prevEl.addEventListener("click",
+
+    function () {
+
+        const currentImg = displayedImg[activeImg]
+        currentImg.classList.remove("active");
+        activeImg --; 
+        let prevImg = displayedImg[activeImg]; 
+        prevImg.classList.add("active")
+
+    }
+)
+
 
 
 // Milestone 2:
@@ -75,7 +99,7 @@ function () {
 //     } else {
 //     activeImg ++
 //     }
-// ; 
+// ;
 
 
 
