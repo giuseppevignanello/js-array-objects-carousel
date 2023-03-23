@@ -92,10 +92,10 @@ thumbnailImages.forEach((img, i) => {
 
         function () {
             const images = document.querySelectorAll(".images img");
-            currentImg = images[activeImg]
-            currentImg.classList.remove("active");
-            currentImg = images[i];
-            currentImg.classList.add("active");
+            images[activeImg].classList.remove("active");
+            let newActiveImg = images[i]; 
+            newActiveImg.classList.add("active");
+
 
         }
 
