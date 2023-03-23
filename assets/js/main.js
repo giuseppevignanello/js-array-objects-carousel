@@ -49,7 +49,7 @@ images.forEach((image, i) => {
     sliderEl.innerHTML += `<div class="images text-center">
         <img class ="${i === activeImg ? `active` : ``}" src="./assets/${image.image}" alt="">
     </div>`
-    
+
 
 })
 
@@ -115,7 +115,7 @@ thumbnailImages.forEach((img, i) => {
             currentImg = images[activeImg]
             currentImg.classList.remove("active");
             currentImg = images[i];
-            currentImg.classList.add("active"); 
+            currentImg.classList.add("active");
 
         }
 
@@ -132,27 +132,44 @@ thumbnailImages.forEach((img, i) => {
 // BONUS 2:
 // Aggiungere funzionalità di autoplay: dopo un certo periodo di tempo (3 secondi) l’immagine attiva dovrà cambiare alla successiva.
 
-setInterval(changeImg, 3000)
+
 
 
 //function changeImg
-function changeImg () {
-        const currentImg = displayedImg[activeImg];
-        const currentThumbnailImg = thumbnailImages[activeImg];
-        currentImg.classList.remove("active");
-        currentThumbnailImg.classList.remove("thumbnailActive")
-        if (activeImg === 4) {
-            activeImg = 0
-        } else {
-            activeImg++
-        }
-
-        let nextImg = displayedImg[activeImg];
-        let nextThumbnailImg = thumbnailImages[activeImg];
-        nextImg.classList.add("active");
-        nextThumbnailImg.classList.add("thumbnailActive")
-
+function changeImg() {
+    const currentImg = displayedImg[activeImg];
+    const currentThumbnailImg = thumbnailImages[activeImg];
+    currentImg.classList.remove("active");
+    currentThumbnailImg.classList.remove("thumbnailActive")
+    if (activeImg === 4) {
+        activeImg = 0
+    } else {
+        activeImg++
     }
+
+    let nextImg = displayedImg[activeImg];
+    let nextThumbnailImg = thumbnailImages[activeImg];
+    nextImg.classList.add("active");
+    nextThumbnailImg.classList.add("thumbnailActive")
+
+}
+
 // BONUS 3:
 // Aggiungere bottoni di start/stop e di inversione del meccanismo di autoplay.
+
+const startBtnEl = document.querySelector(".start");
+const stopBtnEl = document.querySelector(".stop");
+
+
+startBtnEl.addEventListener("click",
+    function () {
+        const changeImgInterval = setInterval(changeImg, 3000)
+        stopBtnEl.addEventListener("click", 
+        function() {
+            clearInterval(changeImgInterval)
+        } )
+        }
+)
+
+
 
