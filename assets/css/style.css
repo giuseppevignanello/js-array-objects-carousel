@@ -10,7 +10,7 @@ img {
     width: 200px; 
 }
 
-.images img:not(.active) {
+.card:not(.active) {
     display: none;
 }
 

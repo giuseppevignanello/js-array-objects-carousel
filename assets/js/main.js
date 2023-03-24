@@ -46,9 +46,13 @@ const thumbnailEl = document.querySelector(".thumbnail")
 let activeImg = 0
 
 images.forEach((image, i) => {
-    sliderEl.innerHTML += `<div class="images text-center">
-        <img class ="${i === activeImg ? `active` : ``}" src="./assets/${image.image}" alt="">
-    </div>`
+    sliderEl.innerHTML += `<div class="card ${i === activeImg ? `active` : ``}">
+                <div class="images text-center">
+                    <img src="./assets/${image.image}" alt="">
+                </div>
+                <h3 class="text-center">${image.title}</h3>
+                <p class="text-center">${image.text}</p>
+            </div>`
 
 
 })
@@ -77,7 +81,7 @@ images.forEach((image, i) => {
 // Aggiungere le thumbnails (sottoforma di miniatura) ed al click attivare l’immagine corrispondente.
 
 
-const displayedImg = document.querySelectorAll(".images img")
+const displayedImg = document.querySelectorAll(".card")
 const thumbnailImages = document.querySelectorAll(".thumbnail img ")
 const nextEl = document.querySelector(".next");
 
